@@ -1,0 +1,32 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Or any version of Node.js you are using
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Check permissions (if necessary)
+        run: |
+          sudo chmod -R 755 node_modules/.bin/
+          sudo chmod +x ./node_modules/.bin/jest
