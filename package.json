@@ -1,0 +1,33 @@
+{
+  "name": "kannada-kalike",
+  "version": "1.0.0",
+  "description": "A Kannada language learning application",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(your-module)/)"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
